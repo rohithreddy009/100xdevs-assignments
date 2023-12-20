@@ -74,3 +74,6 @@ function toLower(str) {
   console.log("After toLowerCase:", str.toLowerCase());
 }
 toLower("Hello World");
+
+
+getLength("sjdlkasjfl")
