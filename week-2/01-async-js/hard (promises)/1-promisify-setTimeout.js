@@ -14,16 +14,6 @@
   
 
 function wait(n) {
-    return new Promise(function (resolve) {
-      setTimeout(function () {
-        resolve(`Promise resolved after ${n} seconds`);
-      }, n * 1000);
-    });
-  }
-  
-//   module.exports = wait;
+}
 
-
-app.listen(3000)
-  
-  
+module.exports = wait;
