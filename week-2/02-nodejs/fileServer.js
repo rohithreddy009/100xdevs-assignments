@@ -53,9 +53,13 @@
       res.status(404).send('Not Found');
     });
     
-    app.listen(PORT, () => {
-      console.log(`Server is running on http://localhost:${PORT}`);
-    });
+    module.exports = app; // export the app
     
-// module.exports = app;
-app.listen(3020)
+    // Only start the server if this file is the main module
+    if (require.main === module) {
+      app.listen(PORT, () => {
+        console.log(`Server is running on http://localhost:${PORT}`);
+      });
+    }
+
+    app.listen(3000)
