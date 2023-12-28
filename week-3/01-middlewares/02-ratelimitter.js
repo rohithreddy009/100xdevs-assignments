@@ -11,6 +11,29 @@ const app = express();
 // You have been given a numberOfRequestsForUser object to start off with which
 // clears every one second
 
+app.use((req, res, next) => {
+  const userId = req.headers['user-id'];
+
+  // Initialize request count for the user if not exists
+  numberOfRequestsForUser[userId] = numberOfRequestsForUser[userId] || 0;
+
+  // Check if the user has exceeded the limit
+  if (numberOfRequestsForUser[userId] >= 5) {
+    return res.status(404).json({ error: 'Rate limit exceeded. Please try again later.' });
+  }
+
+  // Increment the request count for the user
+  numberOfRequestsForUser[userId]++;
+
+  // Schedule the reset of the request count for the user after one second
+  setTimeout(() => {
+    numberOfRequestsForUser[userId] = 0;
+  }, 1000);
+
+  // Continue to the next middleware or route handler
+  next();
+});
+
 let numberOfRequestsForUser = {};
 setInterval(() => {
     numberOfRequestsForUser = {};
@@ -24,4 +47,6 @@ app.post('/user', function(req, res) {
   res.status(200).json({ msg: 'created dummy user' });
 });
 
-module.exports = app;
+app.listen(3000)
+
+// module.exports = app;
