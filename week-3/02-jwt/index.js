@@ -80,3 +80,13 @@ module.exports = {
   decodeJwt,
   jwtPassword,
 };
+
+
+// let a =signJwt("ironman@gmail.com", "tonystark")
+// console.log(a)
+
+// let b = verifyJwt(a)
+// console.log(b)
+
+// let c = decodeJwt(a)
+// console.log(c)
