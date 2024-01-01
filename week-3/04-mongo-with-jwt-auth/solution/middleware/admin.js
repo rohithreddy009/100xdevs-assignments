@@ -4,6 +4,7 @@ const {JWT_SECRET} = require("../config");
 // Middleware for handling auth
 function adminMiddleware(req, res, next) {
     const token = req.headers.authorization; // bearer token
+    console.log(token)
     const words = token.split(" "); // ["Bearer", "token"]
     const jwtToken = words[1]; // token
     try {

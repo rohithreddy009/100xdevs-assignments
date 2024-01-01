@@ -4,8 +4,6 @@ const app = express();
 const adminRouter = require("./routes/admin")
 const userRouter = require("./routes/user");
 
-const JWT_SECRET = "ironman"
-
 // Middleware for parsing request bodies
 app.use(bodyParser.json());
 app.use("/admin", adminRouter)
