@@ -45,7 +45,7 @@ router.post('/courses/:courseId', userMiddleware, async(req, res) => {
     })
 });
 
-router.get('/purchasedCourses', userMiddleware, async (req, res) => {
+router.get('/purchasedCourses', async (req, res) => {
     // Implement fetching purchased courses logic
     const user = await User.findOne({
         username: req.headers.username
@@ -61,6 +61,24 @@ router.get('/purchasedCourses', userMiddleware, async (req, res) => {
     res.json({
         courses: courses
     })
+});
+
+router.get('/users', async (req, res) => {
+    try {
+        // Fetch all users from the database
+        const users = await User.find({}, { password: 0 }); // Exclude passwords from the response
+
+        // Return the list of users in the response
+        res.json({
+            users: users
+        });
+    } catch (error) {
+        // Handle errors, e.g., database errors
+        console.error(error);
+        res.status(500).json({
+            error: 'Internal Server Error'
+        });
+    }
 });
 
 module.exports = router
