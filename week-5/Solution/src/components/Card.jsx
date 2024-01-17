@@ -18,18 +18,18 @@ export function Card(props){
         <p>{description}</p>
     </div>
     <div style={{ border: '1px solid #000', padding: '10px' }}>
-  <button style={{ marginRight: '10px' }} {...socialMedia.linkedin && (
-    <a href={socialMedia.linkedin} target="_blank" rel="noopener noreferrer">
+      <button style={{ marginRight: '10px' }} {...socialMedia.linkedin && (
+      <a href={socialMedia.linkedin} target="_blank" rel="noopener noreferrer">
       LinkedIn
-    </a>
-  )}>LinkedIn</button>
+      </a>
+    )}>LinkedIn</button>
 
-  <button {...socialMedia.twitter && (
-    <a href={socialMedia.twitter} target="_blank" rel="noopener noreferrer">
+    <button {...socialMedia.twitter && (
+      <a href={socialMedia.twitter} target="_blank" rel="noopener noreferrer">
       Twitter
-    </a>
-  )}>Twitter</button>
-</div>
+      </a>
+    )}>Twitter</button>
+    </div>
 
     <div>
         <h3>Interests</h3>
