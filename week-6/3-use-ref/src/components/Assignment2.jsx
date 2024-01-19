@@ -4,10 +4,14 @@ import React, { useState, useCallback } from 'react';
 
 export function Assignment2() {
     const [, forceRender] = useState(0);
+    const [count, setCount] = useState(0)
+    const [re_render, setRe_render] = useState(0)
 
     const handleReRender = () => {
         // Update state to force re-render
-        forceRender(Math.random());
+        // forceRender(Math.random());
+        setCount(count + 1)
+        setCount(re_render + 1)
     };
 
     return (
