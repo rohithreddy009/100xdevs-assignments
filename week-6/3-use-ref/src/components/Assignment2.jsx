@@ -11,7 +11,7 @@ export function Assignment2() {
         // Update state to force re-render
         // forceRender(Math.random());
         setCount(count + 1)
-        setCount(re_render + 1)
+        setCount(re_render + 1``)
     };
 
     return (
